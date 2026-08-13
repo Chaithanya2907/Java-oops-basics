@@ -1,0 +1,30 @@
+ import java.util.Scanner;
+public class Main{
+    public static void main(String args[]){
+       int  balance=10000;
+       int  withdrawal_amount;
+       int remaining_balance;
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter an amount:");
+        withdrawal_amount=sc.nextInt();
+        if (withdrawal_amount>balance)
+        {
+            System.out.println("Insufficient balance!!");
+        }
+        else if(withdrawal_amount<=0)
+        {
+            System.out.println("Invalid amount");
+
+        }
+          else if (withdrawal_amount % 100 != 0) {
+    System.out.println("Enter amount in multiples of 100");
+}
+        else{
+            remaining_balance=balance-withdrawal_amount;
+            System.out.println("Withdrawal succes");
+            System.out.println("remanining amount is:"+remaining_balance);
+
+        }
+       
+    }
+}
