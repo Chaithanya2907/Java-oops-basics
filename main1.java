@@ -1,29 +1,27 @@
- import java.util.Scanner;
-
-public class Main1 {
-    public static void main(String args[]) {
-
-        int euc;
-        int eb;
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter units consumed: ");
-        euc = sc.nextInt();
-
-        if (euc <= 100) {
-            eb = euc * 2;
+import java.util.Scanner;
+public class main1{
+    public static void main(String args[]){
+        int PIN=1234;
+        int p;
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<3;i++){
+            System.out.println("Enter the PIN:");
+             p=sc.nextInt();
+            if (p==PIN){
+                System.out.println("PIN correct!");
+                System.out.println("Welcome to ATM");
+                break;
+            }
+            else if (p!=PIN)
+                {
+                System.out.println("Incorrect PIN!");
+                if (i==2){
+                  System.out.println("Your card is blocked!");
+            }
+            else{
+                System.out.println("Attempts remaining:" +(2-i));
+            }
         }
-        else if (euc <= 200) {
-            eb = (100 * 2) + ((euc - 100) * 3);
-        }
-        else if (euc <= 300) {
-            eb = (100 * 2) + (100 * 3) + ((euc - 200) * 5);
-        }
-        else {
-            eb = (100 * 2) + (100 * 3) + (100 * 5) + ((euc - 300) * 7);
-        }
-
-        System.out.println("Electricity Bill: ₹" + eb);
     }
+}
 }
