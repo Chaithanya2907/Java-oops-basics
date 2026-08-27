@@ -1,41 +1,44 @@
  import java.util.Scanner;
 
 public class Main {
-    public static void main(String args[]) {
 
-        double product_price;
-        int quantity;
-        double total;
-        double discount;
-        double final_price;
+    public static void main(String[] args) {
 
-        Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter product price: ");
-        product_price = s.nextDouble();
+        int num;
+        int positive = 0;
+        int negative = 0;
+        int zero = 0;
+        int sum = 0;
 
-        System.out.print("Enter quantity of product: ");
-        quantity = s.nextInt();
+        for (int i = 0; i < 10; i++) {
 
-        total = product_price * quantity;
+            System.out.print("Enter number " + (i + 1) + ": ");
+            num = sc.nextInt();
 
-        if (total >= 5000) {
-            discount = total * 0.20;
-        }
-        else if (total >= 3000) {
-            discount = total * 0.10;
-        }
-        else if (total >= 1000) {
-            discount = total * 0.05;
-        }
-        else {
-            discount = 0;
+            sum = sum + num;
+
+            if (num > 0) {
+                positive++;
+            }
+            else if (num < 0) {
+                negative++;
+            }
+            else {
+                zero++;
+            }
         }
 
-        final_price = total - discount;
+        double average = sum / 10.0;
 
-        System.out.println("Total price: " + total);
-        System.out.println("Discount: " + discount);
-        System.out.println("Final price: " + final_price);
+        System.out.println("\n===== NUMBER ANALYSIS =====");
+        System.out.println("Positive numbers: " + positive);
+        System.out.println("Negative numbers: " + negative);
+        System.out.println("Zeros: " + zero);
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + average);
+
+        sc.close();
     }
 }
