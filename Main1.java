@@ -1,42 +1,49 @@
- import java.util.Scanner;
- public class Main{
-    public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in );
-        String name;
-        int age;
-        int salary;
-        int score;
-        boolean status;
-          int choice;
-        do{
-           
-        System.out.print("Enter your name:");
-        name=sc.nextLine();
-        System.out.print("Enter your age:");
-        age=sc.nextInt();
-        System.out.print("Enter your monthly salary:");
-        salary=sc.nextInt();
-        System.out.print("Enter your credit score:");
-        score=sc.nextInt();
-        System.out.println("===== LOAN ELIGIBILITY=====");
-         System.out.println("Name:" + name);
-         status=checkEligibility(age, salary, score);
- System.out.println("Status:" + status);
-  System.out.println("1. Check another person");
-System.out.println("2. Exit");
-System.out.print("Enter your choice: ");
-choice = sc.nextInt();
-sc.nextLine();
-        }
-    while (choice==1);
-    }
-    static boolean checkEligibility(int age, int salary, int score){
-    if (age>=21 && salary>=25000 && score>=700){
-             return true;
-        }
-        else{
-            return false;
-        }
+import java.util.Scanner;
+
+class Mobile {
+
+    String brand;
+    int price;
+
+    Mobile(String brand, int price) {
+        this.brand = brand;
+        this.price = price;
     }
 
- }
+    void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Price: " + price);
+    }
+
+    void checkPrice() {
+        if (price >= 30000) {
+            System.out.println("Premium mobile");
+        }
+        else {
+            System.out.println("Budget mobile");
+        }
+    }
+}
+
+public class Main1 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the brand: ");
+        String brand = sc.nextLine();
+
+        System.out.print("Enter the price: ");
+        int price = sc.nextInt();
+
+        Mobile obj = new Mobile(brand, price);
+
+        System.out.println("\n===== MOBILE DETAILS =====");
+
+        obj.displayDetails();
+        obj.checkPrice();
+
+        sc.close();
+    }
+}
